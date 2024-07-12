@@ -24,3 +24,16 @@ document.getElementById("loginForm").addEventListener("submit",async (e)=>{
         }
     });
 })
+
+function comprobarSesion() {
+    if(localStorage.getItem("user")){
+        if(JSON.parse(localStorage.getItem("user")).admin==1){
+            location.href="../admin/index.html"
+        }else{
+            location.href="../alumno/index.html"
+        }
+    }else{
+       
+    }
+}
+comprobarSesion()

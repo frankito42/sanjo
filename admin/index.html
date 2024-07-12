@@ -62,7 +62,26 @@
     <div class="container mt-2">
         <div class="row mb-2">
             <div class="col-6">
+                <button type="button" data-mdb-modal-init data-mdb-target="#nuevoPago" class="btn btn-primary" data-mdb-ripple-init>Registrar Pago</button>
                 <button type="button" data-mdb-modal-init data-mdb-target="#newPublicacion" class="btn btn-primary" data-mdb-ripple-init>Crear publicacion</button>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-12">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Alumno</th>
+                            <th>Fecha de pago</th>
+                            <th>Monto</th>
+                            <th>Corresponde</th>
+                            <th>Metodo de pago</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaPagos">
+
+                    </tbody>
+                </table>
             </div>
         </div>
         <div id="listarPublicaciones" class="row">
@@ -79,6 +98,51 @@
 
     <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////// -->
     <!-- //////////////////////////MODAL CREAR PUBLICACIONES/////////////////////////////////////////////////// -->
+        <!-- Modal -->
+        <div class="modal fade" id="nuevoPago" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="formNuevoPago">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" style="background: #ededed;padding: 1%;border-radius: 5px;">Registrar un pago</h5>
+                    <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                           <div class="col-12 mb-2">
+                                <select required name="alumnoId" id="selecAlumno" style="outline: none;padding: 1%;border: 0px;border-radius: 5px;background: #ededed;width: 100%;">
+
+                                </select>
+                           </div>
+                           <div class="col-12 mb-2">
+                                <select required name="meseSelect" id="meseSelect" style="outline: none;padding: 1%;border: 0px;border-radius: 5px;background: #ededed;width: 100%;">
+
+                                </select>
+                           </div>
+                           <div class="col-12 mb-2">
+                                <select required name="metodo" id="metodo" style="outline: none;padding: 1%;border: 0px;border-radius: 5px;background: #ededed;width: 100%;">
+                                    <option value="" selected>Seleccionar metodo de pago</option>
+                                    <option value="Efectivo">Efectivo</option>
+                                    <option value="Qr o tranferencia">Qr o tranferencia</option>
+                                </select>
+                           </div>
+                           <div class="col-12 mb-2">
+                                <div class="form-outline" data-mdb-input-init>
+                                    <input type="text" required id="monto" name="monto" class="form-control" />
+                                    <label class="form-label" for="monto">Ingresar monto</label>
+                                </div>
+                           </div>
+                        </div>
+                    
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cerrarModal" data-mdb-ripple-init data-mdb-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
         <!-- Modal -->
         <div class="modal fade" id="newPublicacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
