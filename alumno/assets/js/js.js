@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", async (event)=>{
     })
     document.getElementById("realizarPagoModalBtn").addEventListener("click",()=>{
         abrirModalPagar()
-        let mes=(pagos==[])?1:pagos[pagos.length-1].mesPagoId+1
+        console.log((pagos[0]))
+        let mes=(pagos==[])?1:pagos[0].mesPagoId+1
         document.getElementById("mesPagar").innerHTML=obtenerNombreMesIntl(mes)
     })
     aosInit()
