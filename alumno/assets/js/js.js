@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async (event)=>{
     document.getElementById("realizarPagoModalBtn").addEventListener("click",()=>{
         abrirModalPagar()
         console.log((pagos[0]))
-        let mes=(pagos==[])?1:pagos[0].mesPagoId+1
+        let mes=(pagos=="")?1:pagos[0].mesPagoId+1
         document.getElementById("mesPagar").innerHTML=obtenerNombreMesIntl(mes)
     })
     aosInit()
@@ -60,7 +60,7 @@ function dibujarPublicaciones(publicaciones) {
                     <p>${element.texto}</p>
                     <a href="../admin/php/${element.direccion_archivo}" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                     <a style="display:none;" href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                    <button class="reservaBtn">Reservar</button>
+                    <a class="reservaBtn btn btn-block" href="https://wa.me/3718416724?text=Hola, me gustaria reservar este uniforme: ${element.titulo}">Reservar</a>
                 </div>
             </div>  
         `

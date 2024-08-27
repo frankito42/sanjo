@@ -69,19 +69,23 @@
     <div class="container mt-2">
         <div class="row mb-2">
             <div class="col-6">
-                <button type="button" data-mdb-modal-init data-mdb-target="#nuevoPago" class="btn btn-primary" data-mdb-ripple-init>Registrar Pago</button>
+                <button type="button" data-mdb-modal-init data-mdb-target="#modalNuevoAlumno" class="btn btn-primary" data-mdb-ripple-init>Registrar Alumno</button>
             </div>
-        </div>
+            <div class="col-6">
+                <div class="form-outline" data-mdb-input-init>
+                    <input type="text" required id="search" name="search" class="form-control" />
+                    <label class="form-label" for="search">Buscar</label>
+                </div>
+            </div>
+        </div> 
         <div class="row mb-2">
             <div class="col-12">
                 <table class="table table-hover">
                     <thead>
                         <tr>
+                            <th>Curso</th>
                             <th>Alumno</th>
-                            <th>Fecha de pago</th>
-                            <th>Monto</th>
-                            <th>Corresponde</th>
-                            <th>Metodo de pago</th>
+                            <th>DNI</th>
                         </tr>
                     </thead>
                     <tbody id="tablaPagos">
@@ -146,6 +150,183 @@
             </div>
             </div>
         </div>
+        <!-- Modal -->
+        <!-- Modal -->
+        <!-- Modal -->
+        <!-- Modal -->
+        <!-- Modal -->
+         <!-- Modal -->
+<div class="modal fade" id="modalAcciones" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" style="background: #ededed;padding: 1%;border-radius: 5px;" id="nombreXd"></h5>
+          <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" onclick="abrirModalPagosSelectMes()" class="btn btn-success btn-rounded btn-block btn-lg" data-mdb-ripple-init>Registrar Pago</button>
+                    <button type="button" onclick="abrirModalEdit()" class="btn btn-info btn-rounded btn-block btn-lg" data-mdb-ripple-init>Editar Estudiante</button>
+                    <button type="button" onclick="abrirModalHistorial()" class="btn btn-secondary btn-rounded btn-block btn-lg" data-mdb-ripple-init>Ver Pagos</button>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+        <!-- Modal -->
+        <!-- Modal -->
+        <!-- Modal -->
+         <!-- Modal -->
+<div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="formEditarEstudiante">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" style="background: #ededed;padding: 1%;border-radius: 5px;">Editar estudiante</h5>
+          <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-12 mb-2">
+                    <div class="form-outline" data-mdb-input-init>
+                        <input type="text" required id="nombreEdit" name="nombreEdit" class="form-control" />
+                        <label class="form-label" for="nombreEdit">Nombre Completo</label>
+                    </div>
+                </div>
+                <div class="col-12 mb-2">
+                    <div class="form-outline" data-mdb-input-init>
+                        <input type="text" required id="dniEdit" name="dniEdit" class="form-control" />
+                        <label class="form-label" for="dniEdit">DNI</label>
+                    </div>
+                </div>
+                <div class="col-12 mb-2">
+                    <div class="form-outline" data-mdb-input-init>
+                        <input type="text" required id="cursoEdit" name="cursoEdit" class="form-control" />
+                        <label class="form-label" for="cursoEdit">Curso</label>
+                    </div>
+                </div>
+                <div class="col-12 mb-2">
+                    <div class="form-outline" data-mdb-input-init>
+                        <input type="text" required id="userEdit" name="userEdit" class="form-control" />
+                        <label class="form-label" for="userEdit">User</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-outline" data-mdb-input-init>
+                        <input type="text" required id="passEdit" name="passEdit" class="form-control" />
+                        <label class="form-label" for="passEdit">Contraseña</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary" data-mdb-ripple-init>Guardar cambios</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+        <!-- Modal -->
+        <!-- Modal -->
+        <!-- Modal -->
+        <!-- Modal -->
+         <!-- Modal -->
+<div class="modal fade" id="modalHistorialDePagos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" style="background: #ededed;padding: 1%;border-radius: 5px;">Historial de pagos</h5>
+          <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Fecha pago</th>
+                                <th>Mes de pago</th>
+                                <th>Monto</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historial">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+        <!-- Modal -->
+        <!-- Modal -->
+        <!-- Modal -->
+        <!-- Modal -->
+         <!-- Modal -->
+<div class="modal fade" id="modalNuevoAlumno" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="formNewAlum">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" style="background: #ededed;padding: 1%;border-radius: 5px;">Registrar nuevo alumno</h5>
+          <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-12 mb-2">
+                    <div class="form-outline" data-mdb-input-init>
+                        <input type="text" required id="nombreNew" name="nombreNew" class="form-control" />
+                        <label class="form-label" for="nombreNew">Nombre completo</label>
+                    </div>
+                </div>
+                <div class="col-12 mb-2">
+                    <div class="form-outline" data-mdb-input-init>
+                        <input type="text" required id="dniNew" name="dniNew" class="form-control" />
+                        <label class="form-label" for="dniNew">DNI</label>
+                    </div>
+                </div>
+                <div class="col-12 mb-2">
+                    <div class="form-outline" data-mdb-input-init>
+                        <input type="text" required id="cursoNew" name="cursoNew" class="form-control" />
+                        <label class="form-label" for="cursoNew">Curso</label>
+                    </div>
+                </div>
+                <div class="col-12 mb-2">
+                    <div class="form-outline" data-mdb-input-init>
+                        <input type="text" required id="userNew" name="userNew" class="form-control" />
+                        <label class="form-label" for="userNew">Nombre de usuario</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-outline" data-mdb-input-init>
+                        <input type="text" required id="passNew" name="passNew" class="form-control" />
+                        <label class="form-label" for="passNew">Contrseña</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cerrarModalNew" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary" data-mdb-ripple-init>Guardar</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+        <!-- Modal -->
+        <!-- Modal -->
+        <!-- Modal -->
+        <!-- Modal -->
         <!-- Modal -->
      
     
